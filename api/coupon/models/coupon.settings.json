@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coupons",
+  "info": {
+    "name": "coupon"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "discount": {
+      "type": "integer",
+      "required": true
+    },
+    "coupon": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string"
+    },
+    "store": {
+      "model": "store",
+      "via": "coupons"
+    },
+    "expiration": {
+      "type": "date",
+      "required": true
+    },
+    "users": {
+      "via": "coupons",
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}
